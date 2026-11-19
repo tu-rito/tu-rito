@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-label="tu-rito: aerospace, embedded systems, foiling">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#070d1a"/>
+      <stop offset="0.65" stop-color="#0d2238"/>
+      <stop offset="1" stop-color="#103a4f"/>
+    </linearGradient>
+    <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0f6f8a" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#052433"/>
+    </linearGradient>
+    <linearGradient id="sail" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e8f4f8"/>
+      <stop offset="1" stop-color="#8fd3e6"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#2bb3d6" stroke-opacity="0.07" stroke-width="1"/>
+    </pattern>
+    <linearGradient id="fade" x1="560" y1="0" x2="1200" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5fd4f2" stop-opacity="0"/>
+      <stop offset="0.25" stop-color="#5fd4f2" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#5fd4f2" stop-opacity="0.12"/>
+    </linearGradient>
+    <clipPath id="frame"><rect width="1200" height="300" rx="14"/></clipPath>
+  </defs>
+
+  <g clip-path="url(#frame)">
+    <rect width="1200" height="300" fill="url(#sky)"/>
+    <rect width="1200" height="300" fill="url(#grid)"/>
+
+    <!-- streamlines over an airfoil, drifting -->
+    <g fill="none" stroke="url(#fade)" stroke-width="1.4">
+      <path d="M560 70 C 700 70, 760 40, 900 52 S 1100 80, 1200 74"/>
+      <path d="M560 92 C 700 92, 770 70, 900 76 S 1100 96, 1200 94"/>
+      <path d="M560 114 C 700 114, 780 104, 900 104 S 1100 114, 1200 114"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0; -18 0; 0 0" dur="9s" repeatCount="indefinite"/>
+    </g>
+    <path d="M690 86 C 730 74, 800 78, 850 92 C 800 98, 740 100, 690 92 Z" fill="#5fd4f2" fill-opacity="0.12" stroke="#5fd4f2" stroke-opacity="0.35"/>
+
+    <!-- text -->
+    <text x="64" y="128" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="64" font-weight="700" fill="#e8f4f8" letter-spacing="2">tu-rito</text>
+    <text x="66" y="170" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="20" fill="#7fd6ee" letter-spacing="1">aerospace · embedded · foiling</text>
+    <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" fill="#5fd4f2" fill-opacity="0.75">
+      <text x="66" y="206">&gt; GNSS 10 Hz ⊕ IMU 100 Hz → EKF</text>
+      <text x="66" y="226">&gt; SOG <tspan fill="#e8f4f8">24.7</tspan> kn  HEEL −18°  TRIM +3°<tspan>▍<animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/></tspan></text>
+    </g>
+
+    <!-- foiling dinghy -->
+    <g transform="translate(840 0)">
+      <animateTransform attributeName="transform" type="translate" values="840 0; 840 -4; 840 0" dur="3.2s" repeatCount="indefinite"/>
+      <!-- sail -->
+      <path d="M118 74 L118 214 L196 214 C 186 170, 160 118, 118 74 Z" fill="url(#sail)" fill-opacity="0.92"/>
+      <path d="M118 74 L118 214" stroke="#cfe9f1" stroke-width="3"/>
+      <!-- wings / hull -->
+      <path d="M60 222 L210 222 L196 230 L74 230 Z" fill="#cfe9f1"/>
+      <path d="M40 222 L230 214" stroke="#cfe9f1" stroke-width="2.5" stroke-linecap="round"/>
+      <!-- foils -->
+      <path d="M150 230 L150 286 M78 230 L78 280" stroke="#cfe9f1" stroke-width="3.5"/>
+    </g>
+
+    <!-- water -->
+    <g>
+      <path fill="url(#sea)" d="M0 262 Q 75 252 150 262 T 300 262 T 450 262 T 600 262 T 750 262 T 900 262 T 1050 262 T 1200 262 T 1350 262 T 1500 262 V 300 H 0 Z">
+        <animateTransform attributeName="transform" type="translate" values="0 0; -300 0" dur="7s" repeatCount="indefinite"/>
+      </path>
+      <path fill="#5fd4f2" fill-opacity="0.18" d="M0 270 Q 100 262 200 270 T 400 270 T 600 270 T 800 270 T 1000 270 T 1200 270 T 1400 270 T 1600 270 V 300 H 0 Z">
+        <animateTransform attributeName="transform" type="translate" values="-400 0; 0 0" dur="11s" repeatCount="indefinite"/>
+      </path>
+    </g>
+    <!-- foils seen through the water -->
+    <g transform="translate(840 0)" stroke="#cfe9f1" stroke-opacity="0.55" stroke-linecap="round">
+      <animateTransform attributeName="transform" type="translate" values="840 0; 840 -4; 840 0" dur="3.2s" repeatCount="indefinite"/>
+      <path d="M150 262 L150 286 M78 262 L78 280" stroke-width="3.5"/>
+      <path d="M128 286 L172 286" stroke-width="4"/>
+      <path d="M62 280 L94 280" stroke-width="3.5"/>
+    </g>
+  </g>
+</svg>
